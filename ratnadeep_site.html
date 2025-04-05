@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Ratnadeep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    :root {
+      --primary-color: #2980b9;
+      --background-color: #ffffff;
+      --text-color: #2c3e50;
+      --accent-color: #ecf0f1;
+    }
+
+    [data-theme="dark"] {
+      --background-color: #121212;
+      --text-color: #f1f1f1;
+      --accent-color: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-color);
+      background: var(--background-color);
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: var(--accent-color);
+      padding: 80px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+    }
+
+    #typed {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--background-color);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      padding: 10px;
+      z-index: 1000;
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from { top: -100px; opacity: 0; }
+      to { top: 0; opacity: 1; }
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1a5276;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 60px 20px;
+      border-bottom: 1px solid #eee;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #34495e;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .highlight {
+      background-color: var(--accent-color);
+      padding: 10px;
+      border-left: 4px solid var(--primary-color);
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--accent-color);
+      color: #7f8c8d;
+    }
+
+    img.profile-pic {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 20px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    img.profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .counter {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+  <header>
+    <h1>Dr. Ratnadeep</h1>
+    <p><span id="typed"></span></p>
+    <img src="profile.jpg" alt="Dr. Ratnadeep" class="profile-pic">
+  </header>
+
+  <nav>
+    <a href="#resume">Resume</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#gallery">Trips</a>
+  </nav>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>Experienced Internal Medicine Doctor with a passion for holistic care, teaching, and creativity.</p>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul>
+      <li>Filmmaking</li>
+      <li>Gaming</li>
+      <li>Podcasting</li>
+      <li>Writing</li>
+    </ul>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Winner - Short Film "Between Lives"</li>
+      <li>Organized mental health awareness programs</li>
+      <li>Built a healthcare YouTube channel (upcoming)</li>
+    </ul>
+    <div class="counter" id="patientsCounter">Patients Treated: 0</div>
+  </section>
+
+  <section id="gallery">
+    <h2>Trips</h2>
+    <div class="gallery">
+      <img src="trip1.jpg" alt="Trip 1">
+      <img src="trip2.jpg" alt="Trip 2">
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Dr. Ratnadeep. All rights reserved.
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray("section").forEach((section, i) => {
+      gsap.fromTo(section, 
+        { opacity: 0, y: 50 }, 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+
+    let counter = document.getElementById("patientsCounter");
+    let count = 0;
+    let target = 2500;
+    let interval = setInterval(() => {
+      if (count < target) {
+        count += 25;
+        counter.innerText = `Patients Treated: ${count}`;
+      } else {
+        clearInterval(interval);
+      }
+    }, 30);
+
+    new Typed("#typed", {
+      strings: [
+        "Internal Medicine Doctor",
+        "Filmmaker & Writer",
+        "Gamer & Podcaster",
+        "Lifelong Learner"
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+  </script>
+</body>
+</html>
